@@ -1,0 +1,290 @@
+/* Daftar Artikel Styles */
+/* Menu Artikel */
+.menu-artikel {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-artikel .card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.menu-artikel h2 {
+    color: #07524B;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.garis-pemisah {
+    border: 0;
+    height: 2px;
+    background: #e0e0e0;
+    margin: 1.5rem 0;
+}
+
+.menu-artikel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-artikel li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.menu-artikel li:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.article-content {
+    flex: 1;
+}
+
+.menu-artikel a {
+    color: #1B2434;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.3rem;
+    transition: color 0.3s ease;
+}
+
+.menu-artikel a:hover {
+    color: #FDA54F;
+    text-decoration: underline;
+}
+
+.article-date {
+    color: #6c757d;
+    font-size: 0.85rem;
+    display: block;
+}
+
+.article-thumbnail {
+    width: 80px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-artikel .card {
+        padding: 1.5rem;
+    }
+    
+    .menu-artikel h2 {
+        font-size: 1.5rem;
+    }
+    
+    .menu-artikel li {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .article-thumbnail {
+        width: 70px;
+        height: 50px;
+    }
+    
+    .menu-artikel a {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .menu-artikel h2 {
+        font-size: 2rem;
+    }
+    
+    .article-thumbnail {
+        width: 100px;
+        height: 80px;
+    }
+    
+    .menu-artikel a {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* akhiran Artikel Styles */
+
+.newsletter-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e0e0e0;
+}
+
+.newsletter-content h3 {
+    color: #07524B;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.newsletter-content p {
+    color: #4a5568;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #48BB78;
+    box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1);
+}
+
+.wa-button {
+    background: #25D366;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.wa-button:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
+
+.wa-button i {
+    font-size: 1.2rem;
+}
+
+.disclaimer {
+    font-size: 0.8rem;
+    color: #718096;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Responsive Layout */
+@media (min-width: 1024px) {
+    .main-content {
+        position: relative;
+    }
+    
+    .newsletter-section {
+        position: sticky;
+        top: 2rem;
+        width: 350px;
+        margin-left: 2rem;
+        margin-top: 0;
+    }
+    
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .right-sidebar {
+        position: sticky;
+        top: 2rem;
+        height: fit-content;
+    }
+}
+    /* Susunan desktop: */
+    /* [Materi Card] [Newsletter + News Sidebar] */
+}
+
+@media (max-width: 1023px) {
+    .newsletter-section {
+        order: 3;
+        margin-top: 2rem;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .main-content {
+        display: flex;
+        gap: 3rem;
+    }
+    
+    .materi {
+        flex: 1;
+    }
+    
+    .meta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.view-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #f8f9fa;
+    padding: 4px 10px;
+    border-radius: 15px;
+    margin-left: 10px;
+}
+
+.view-icon {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+.view-count {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+/* Animasi ikon */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.view-icon.animate {
+    animation: pulse 0.5s ease;
+}
+    
+    

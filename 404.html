@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --bg-gradient: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-gradient);
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            position: relative;
+        }
+
+        .error-code {
+            font-size: 15rem;
+            font-weight: 900;
+            text-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .robot {
+            font-size: 8rem;
+            margin: 2rem 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .robot:hover {
+            transform: rotate(360deg);
+        }
+
+        .message {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        .home-btn {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .home-btn:active {
+            transform: translateY(0);
+        }
+
+        .home-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .home-btn:hover::before {
+            left: 100%;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            animation: confetti 3s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes confetti {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 8rem;
+            }
+            
+            .robot {
+                font-size: 5rem;
+            }
+            
+            .message {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <div class="robot" onclick="animateRobot()">🤖</div>
+        <p class="message">Hallo! mohon maaf atas ketidak nyamanan nya, kami sedang dalam proses pengembangan , tunggu sampai developer menyelesaikan nya</p>
+        <button class="home-btn" onclick="goHome()">kembali</button>
+    </div>
+
+    <script>
+        // Animasi robot interaktif
+        function animateRobot() {
+            const robot = document.querySelector('.robot');
+            robot.style.transform = `rotate(${Math.random() * 360}deg) scale(${0.8 + Math.random() * 0.4})`;
+            createParticles();
+        }
+
+        // Redirect ke homepage
+        function goHome() {
+            window.location.href = '/';
+        }
+
+        // Efek partikel interaktif
+        function createParticles() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#fff'];
+            for(let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'confetti';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 3000);
+            }
+        }
+
+        // Efek cursor interaktif
+        document.addEventListener('mousemove', (e) => {
+            const cursorTrail = document.createElement('div');
+            cursorTrail.className = 'confetti';
+            cursorTrail.style.left = e.clientX + 'px';
+            cursorTrail.style.top = e.clientY + 'px';
+            cursorTrail.style.background = `hsl(${Math.random() * 360}, 70%, 50%)`;
+            document.body.appendChild(cursorTrail);
+            
+            setTimeout(() => {
+                cursorTrail.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
