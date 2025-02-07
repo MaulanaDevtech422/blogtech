@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
+    <title>Under Construction | 404</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #ff6b6b;
-            --secondary-color: #4ecdc4;
-            --bg-gradient: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
         }
 
         * {
@@ -22,174 +23,189 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--bg-gradient);
+            background: linear-gradient(135deg, var(--primary), #1a252f);
             font-family: 'Segoe UI', sans-serif;
+            color: white;
             overflow: hidden;
         }
 
         .container {
             text-align: center;
             padding: 2rem;
-            color: white;
+            position: relative;
+            max-width: 600px;
+        }
+
+        .construction-icon {
+            font-size: 8rem;
+            margin: 2rem 0;
+            animation: hammer 2s ease infinite;
             position: relative;
         }
 
-        .error-code {
-            font-size: 15rem;
-            font-weight: 900;
-            text-shadow: 4px 4px 0 rgba(0,0,0,0.1);
-            animation: float 3s ease-in-out infinite;
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
         }
 
-        .robot {
-            font-size: 8rem;
-            margin: 2rem 0;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .robot:hover {
-            transform: rotate(360deg);
-        }
-
-        .message {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-        }
-
-        .home-btn {
-            padding: 1rem 2rem;
+        p {
             font-size: 1.2rem;
-            background: white;
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .home-btn:hover {
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .home-btn:active {
-            transform: translateY(0);
-        }
-
-        .home-btn::before {
-            content: '';
+        .floating-tools {
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                120deg,
-                transparent,
-                rgba(255,255,255,0.3),
-                transparent
-            );
-            transition: 0.5s;
+            pointer-events: none;
+            animation: float 6s linear infinite;
         }
 
-        .home-btn:hover::before {
-            left: 100%;
-        }
-
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: white;
-            animation: confetti 3s linear infinite;
+        @keyframes hammer {
+            0%, 100% { transform: rotate(-30deg); }
+            50% { transform: rotate(30deg); }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
         }
 
-        @keyframes confetti {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
+        .tool {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.2;
         }
 
         @media (max-width: 768px) {
-            .error-code {
-                font-size: 8rem;
-            }
-            
-            .robot {
-                font-size: 5rem;
-            }
-            
-            .message {
-                font-size: 1.5rem;
-            }
+            h1 { font-size: 3rem; }
+            .construction-icon { font-size: 5rem; }
+            .btn-group { flex-direction: column; }
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            margin: 2rem 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 5px;
+            width: 65%;
+            transition: width 0.5s ease;
         }
     </style>
 </head>
 <body>
+    <!-- Floating tools background -->
+    <div class="floating-tools" style="left: 10%">
+        <i class="fas fa-toolbox tool"></i>
+    </div>
+    <div class="floating-tools" style="left: 30%">
+        <i class="fas fa-wrench tool"></i>
+    </div>
+    <div class="floating-tools" style="left: 70%">
+        <i class="fas fa-screwdriver tool"></i>
+    </div>
+
     <div class="container">
-        <div class="error-code">404</div>
-        <div class="robot" onclick="animateRobot()">🤖</div>
-        <p class="message">Hallo! mohon maaf atas ketidak nyamanan nya, kami sedang dalam proses pengembangan , tunggu sampai developer menyelesaikan nya</p>
-        <button class="home-btn" onclick="goHome()">kembali</button>
+        <i class="fas fa-tools construction-icon"></i>
+        <h1>404</h1>
+        <h2>Sedang Dalam Pengembangan!</h2>
+        <p>
+            Kami sedang bekerja keras untuk menyempurnakan website ini. 
+            Konten yang Anda cari sedang dalam proses pengembangan dan 
+            akan segera hadir dalam versi yang lebih baik!
+        </p>
+
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="window.location.href='/'">
+                <i class="fas fa-home"></i> Kembali ke Beranda
+            </button>
+            <button class="btn btn-secondary" onclick="window.location.href='mailto:contact@example.com'">
+                <i class="fas fa-envelope"></i> Hubungi Kami
+            </button>
+        </div>
     </div>
 
     <script>
-        // Animasi robot interaktif
-        function animateRobot() {
-            const robot = document.querySelector('.robot');
-            robot.style.transform = `rotate(${Math.random() * 360}deg) scale(${0.8 + Math.random() * 0.4})`;
-            createParticles();
-        }
+        // Animasi progress bar
+        const progressBar = document.querySelector('.progress-bar');
+        let progress = 65;
+        
+        setInterval(() => {
+            progress = progress >= 100 ? 65 : progress + 0.5;
+            progressBar.style.width = `${progress}%`;
+        }, 50);
 
-        // Redirect ke homepage
-        function goHome() {
-            window.location.href = '/index.html';
-        }
+        // Menambahkan efek hover dinamis pada icon
+        const constructionIcon = document.querySelector('.construction-icon');
+        constructionIcon.addEventListener('mouseover', () => {
+            constructionIcon.style.animation = 'none';
+            setTimeout(() => {
+                constructionIcon.style.animation = 'hammer 2s ease infinite';
+            }, 10);
+        });
 
-        // Efek partikel interaktif
-        function createParticles() {
-            const colors = ['#ff6b6b', '#4ecdc4', '#fff'];
-            for(let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'confetti';
-                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.left = Math.random() * 100 + 'vw';
-                particle.style.animationDuration = Math.random() * 3 + 2 + 's';
-                document.body.appendChild(particle);
-                
-                setTimeout(() => {
-                    particle.remove();
-                }, 3000);
-            }
-        }
-
-        // Efek cursor interaktif
-        document.addEventListener('mousemove', (e) => {
-            const cursorTrail = document.createElement('div');
-            cursorTrail.className = 'confetti';
-            cursorTrail.style.left = e.clientX + 'px';
-            cursorTrail.style.top = e.clientY + 'px';
-            cursorTrail.style.background = `hsl(${Math.random() * 360}, 70%, 50%)`;
-            document.body.appendChild(cursorTrail);
+        // Menambahkan floating tools secara dinamis
+        function createFloatingTool(icon) {
+            const tool = document.createElement('i');
+            tool.className = `fas ${icon} tool`;
+            tool.style.left = `${Math.random() * 100}%`;
+            tool.style.animationDuration = `${5 + Math.random() * 10}s`;
+            document.body.appendChild(tool);
             
             setTimeout(() => {
-                cursorTrail.remove();
-            }, 1000);
-        });
+                tool.remove();
+            }, 15000);
+        }
+
+        setInterval(() => {
+            const tools = ['fa-hammer', 'fa-screwdriver', 'fa-wrench', 'fa-toolbox'];
+            createFloatingTool(tools[Math.floor(Math.random() * tools.length)]);
+        }, 2000);
     </script>
 </body>
 </html>
