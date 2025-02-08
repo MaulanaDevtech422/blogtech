@@ -55,10 +55,10 @@
             line-height: 1.6;
         }
 
-        .btn-group {
+         .btn-group {
             display: flex;
-            gap: 1rem;
             justify-content: center;
+            gap: 1rem;
             margin-top: 2rem;
         }
 
@@ -72,16 +72,22 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-decoration: none;
+            text-align: center;
         }
-
+.btn a i{
+	text-align:center;
+	}
         .btn-primary {
             background: var(--secondary);
             color: white;
+            text-align:center;
         }
 
         .btn-secondary {
             background: var(--accent);
             color: white;
+            text-align:center;
         }
 
         .btn:hover {
@@ -156,15 +162,15 @@
             akan segera hadir dalam versi yang lebih baik!
         </p>
 
-        <div class="progress-container">
+            <div class="progress-container">
             <div class="progress-bar"></div>
         </div>
 
         <div class="btn-group">
-            <button class="btn btn-primary" onclick="window.location.href='index.html'">
-                <i class="fas fa-home"></i> Kembali ke Beranda
-            </button>
-            <button class="btn btn-secondary" onclick="window.location.href='mailto: xrommaulan@gmail.com">
+            <a href="index.html" class="btn btn-primary">
+                <i class="fas fa-home" style="text-align:center;"></i> Kembali ke Beranda
+            </a>
+            <button class="btn btn-secondary" onclick="window.location.href='mailto:xrommaulan@gmail.com'">
                 <i class="fas fa-envelope"></i> Hubungi Kami
             </button>
         </div>
@@ -208,4 +214,4 @@
         }, 2000);
     </script>
 </body>
-</html>
+    </html>
